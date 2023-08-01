@@ -1,0 +1,48 @@
+ <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewpoint"  content="width=devive-width, initial-scale=1.0">
+
+    <title>Quarks Casino - Dice Game with Sound</title>
+    <link rel="stylesheet" href="D:\OneDrive\Documents\Javascript3\style.css">
+</head>
+<body>
+    <h1> Welcome to Quarks Casino!</h1>
+
+    <p>Click the button below to play craps.</p>
+
+    
+
+    <div id="output"></div> <!-- Output will be displayed here -->
+
+    <!--link the Javascript file -->
+    <script src="D:\OneDrive\Documents\Javascript3\code.js"></script>
+
+    <!-- Add an image of a casino dice game -->
+
+    <img src="D:\OneDrive\Pictures\dice-3095227_1280.jpg" alt="Casino Dice Game" width="500" height="300" /><br/>
+
+    <!-- Add the audio element for dice rolling sound -->
+
+    <audio id="diceSound" src="C:\Users\mclus\Dropbox\PC\Downloads\177208__joanneneedsthesound__dice-rolling-dungeon-and-dragons.wav" ></audio>
+
+    <!-- ALWAYS PLAY RESPONDSIBLY -->
+
+    <!-- Add a button to play the dice rolling sound -->
+
+    <button onclick="playDiceRollingSound()">Play Dice Rolling Sound</button>
+
+    <!-- Optional: Add JavaScript to play the sound on specific events -->
+
+    <script>
+
+        function playDiceRollingSound() {
+
+            var audio = document.getElementById("diceSound");
+            audio.play();
+        }
+    </script>
+</body>
+</html>
+
