@@ -1,0 +1,96 @@
+<!-- strings.html 
+    Created by: Hosheyah Yisrael-->
+<!-- Palindrome Checker HTML Code with Comments-->
+    <!DOCTYPE html>
+    <html lang="en">
+    <!-- Opening HTML tag with lang attribute--> 
+
+     <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Palindrome Checker</title>
+    
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+        <style>
+        /* Always give the body a nice radiant background */  
+    
+            body {
+                font-family: 'Open Sans', sans-serif;
+                background: linear-gradient(45deg, #f06, #9f6);
+                color: white;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh; /* Set height to full viewpoint height */
+            }
+    
+            #output {
+                margin-top: 20px;  /* Dont forget to add margin to the output div */
+            }
+
+        /* Add animation to the button on hover */
+            button:hover {
+                animation: pulse 1.5s infinite; /* Apply pulsating animation on hover*/
+            }        
+                
+            @keyframes pulse {
+                 0% {
+                    transform: scale(1); /* Initial scale */
+
+                  }
+
+                 50% { 
+                      transform: scale(1.1); /* Scale up */
+
+                 } 
+                 100% {
+                    transform: scale(1) ; /* Scale back to normal */
+                 }
+
+            }
+        
+        </style>
+    
+    </head>
+    
+    <body>
+    
+        <div>
+        <img src="https://images.unsplash.com/photo-1497282003564-004631e01464?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80.jpg " alt="Bricked Hallway " width="300" height="200">
+            <p>Enter a word to check if it's a palindrome:</p>
+            <input type="text" id="inputString">
+            <button onclick="checkPalindrome()">Check</button>
+            <div id="output"></div>
+        </div>
+
+    
+        <script>
+            // * Always add Javascript code under tag *//
+            function checkPalindrome() {
+    
+                let input = document.getElementById("inputString").value;
+    
+    
+                let cleanedString = input.split(' ').join('');
+    
+    
+                if (cleanedString === cleanedString.split('').reverse().join('')) {
+                    document.getElementById("output").innerText = `${input} is a palindrome!`;
+                } else {
+                    document.getElementById("output").innerText = `${input} is not a palindrome.`;
+                }
+    
+    
+                setTimeout(function() {
+                    let tryAgain = confirm("Would you like to try another word?");
+                    if (!tryAgain) {
+    
+                        document.getElementById("inputString").value = "";
+                    }
+                }, 1000);
+            }
+        </script>
+    
+    </body>
+    
+    </html>
