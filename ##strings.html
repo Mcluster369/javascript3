@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- [Hosheyah Yisrael]-->
+
+
+    <title>Secret Message</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Added some creative styling to the page. */
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f8f8f8fb;
+            padding: 20px;
+            color: #333333;
+        }
+
+        
+        /* --- Comment: Custom styling for heading --- */
+        h1 {
+            color: #007bff;
+            text-align: center;
+        }
+
+        /* --- Comment: Custom styling for form labels --- */
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        /* --- Comment: Custom styling for text input fields --- */
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+        }
+
+        /* --- Comment: Custom styling for the submit button --- */
+        input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* --- Comment: Custom styling for the output div --- */
+        #output {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        /* --- Comment: Custom styling for images --- */
+        img {
+            display: block;
+            margin: 0 auto;
+            max-width: 200px;
+        }
+    </style>
+    <script>
+        // JavaScript code will run when the page loads
+        window.onload = function() {
+            // Getting the form by its ID
+            var form = document.getElementById('userInfo');
+            // Adding an event listener for the form submission
+            form.addEventListener('submit', function(e) {
+                // Preventing the default form submission
+                e.preventDefault();
+                // Getting user's first name, last name, and zip code
+                var firstName = document.getElementById('firstName').value;
+                var lastName = document.getElementById('lastName').value;
+                var zipCode = document.getElementById('zipCode').value;
+                // Combining the first name and last name into a single variable
+                var fullName = firstName + " " + lastName;
+                // Checking if the full name has more than 20 characters
+                if (fullName.length > 20) {
+                    document.getElementById('output').innerHTML = "Warning: Name should be less than 20 characters.";
+                    return;
+                }
+                // Checking if the zip code is valid and contains just 5 digits
+                if (!/^\d{5}$/.test(zipCode)) {
+                    document.getElementById('output').innerHTML = "Warning: Zip code should be 5 digits.";
+                    return;
+                }
+                // If all inputs are valid, show the secret message
+                document.getElementById('output').innerHTML = "Congratulations, " + fullName + "! Here is your secret message: 'Stay curious, keep learning.'";
+            });
+        }
+    </script>
+</head>
+<body>
+    <!-- Image added here -->
+    <img src="https://media.gettyimages.com/id/175422122/photo/screens-with-program-code.jpg?s=2048x2048&w=gi&k=20&c=_sdNj2iHXCWyKo33QQGVTDDiHdZQpyQ9FG8ecm_7fO0= " alt="Program Code">
+
+    <!-- --- Comment: Heading for the Secret Message App --- -->
+    <h1>Welcome to the Secret Message App!</h1>
+
+    <!-- Form for collecting user information -->
+    <form id="userInfo">
+        <!-- input fields for First Name, Last Name, and Zip Code -->
+        <label for="firstName">First Name:</label>
+        <input type="text" id="firstName" name="firstName" placeholder="Hosheyah" required>
+
+        <label for="lastName">Last Name:</label>
+        <input type="text" id="lastName" name="lastName" placeholder= "Yisrael" required>
+
+        <label for="zipCode">Zip Code:</label>
+        <input type="text" id="zipCode" name="zipCode" placeholder="36106" required pattern="\d{5}" title="Zip code should be 5 digits">
+
+        <!-- Submit button added to trigger the validation -->
+        <input type="submit" value="Get Secret Message">
+    </form>
+    <!-- A place to display the output -->
+    <div id="output"></div>
+</body>
+</html>
