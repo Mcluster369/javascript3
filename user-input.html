@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secret Message App</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Your CSS styles here */
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f8f8f8fb;
+            padding: 20px;
+            color: #333333;
+        }
+        h1 {
+            font-weight: 700;
+            color: #007bff;
+            text-align: center;
+        }
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+        }
+        input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+        #output {
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            var form = document.getElementById('userInfo');
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                var firstName = document.getElementById('firstName').value;
+                var lastName = document.getElementById('lastName').value;
+                var zipCode = document.getElementById('zipCode').value;
+                if (firstName.length > 20 || lastName.length > 20) {
+                    document.getElementById('output').innerHTML = "Warning: First name and last name should be 20 characters or less.";
+                    return;
+                }
+                if (!/^\d{5}$/.test(zipCode)) {
+                    document.getElementById('output').innerHTML = "Warning: Zip code should be 5 digits.";
+                    return;
+                }
+                var fullName = firstName + " " + lastName;
+                document.getElementById('output').innerHTML = "Congratulations, " + fullName + "! Here is your secret message: 'Stay curious, keep learning.'";
+            });
+        }
+    </script>
+</head>
+<body>
+    <h1>Secret Message App</h1>
+    <form id="userInfo">
+        <label for="firstName">First Name:</label>
+        <input type="text" id="firstName" name="firstName" placeholder="Hosheyah" required>
+        <label for="lastName">Last Name:</label>
+        <input type="text" id="lastName" name="lastName" placeholder="Yisrael" required>
+        <label for="zipCode">Zip Code:</label>
+        <input type="text" id="zipCode" name="zipCode" placeholder="36106" required pattern="\d{5}" title="Zip code should be 5 digits">
+        <input type="submit" value="Get Secret Message">
+    </form>
+    <div id="output"></div>
+    <nav>
+        <h2>Navigation</h2>
+        <a href="./index.html">Back to Home</a>
+        <a href="./boards.html">Boards</a><br>
+        <a href="./meme.html">Moving Meme</a><br>
+        <a href="./game.html">Dice Game</a><br>
+        <a href="./palindrome.html">Palindrome Checker</a><br>
+        <a href="./user-input.html">Secret Message App</a><br>
+        <a href="./table.html">Table</a><br>
+    </nav>
+</body>
+</html>

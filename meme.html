@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meme Image Animation</title>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Open Sans', sans-serif;
+      text-align: center;
+      background-color: #e72121;
+    }
+    h1 {
+      font-weight: 700;
+    }
+    img {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      /* image styling here */
+    }
+    button {
+      margin: 10px;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      background-color: #3498db;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #2980b9;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+        <h2>Navigation</h2>
+
+        <a href="./index.html">Back to Home</a>
+        <a href="./boards.html">Boards</a><br>
+        <a href="./meme.html">Moving Meme</a><br>
+        <a href="./game.html">Dice Game</a><br>
+        <a href="./palindrome.html">Palindrome Checker</a><br>
+        <a href="./user-input.html">Secret Message App</a><br>
+        <a href="./table.html">Table</a><br>
+        
+        </nav>
+  <h1>Moving Meme Image</h1>
+  <button id="startButton">Start</button>
+  <button id="stopButton" disabled>Stop</button>
+  <!-- PNG image -->
+  <img id="memeImage" src="c:\Users\mclus\Dropbox\PC\Downloads\UATSpace-1 (2).png " alt="A fun meme"> 
+
+  <!-- Audio Element for Sound -->
+  <!-- The audio file -->
+  <audio controls autoplay>
+    <source src="c:\Users\mclus\Dropbox\PC\Downloads\Untitled video - Made with Clipchamp.mp4" type="audio/mp3">
+    Your browser does not support the audio element.
+  </audio>
+
+  <!-- JavaScript Code -->
+  <script>
+    // Get references to the HTML elements
+    const startButton = document.getElementById('startButton');
+    const stopButton = document.getElementById('stopButton');
+    const memeImage = document.getElementById('memeImage');
+
+    // Variables to control animation
+    let animationInterval;
+
+    // Function to move the meme image
+    function moveImage() {
+      let x = 0;
+      let y = 0;
+
+      animationInterval = setInterval(() => {
+        x += 5;
+        y += 5;
+        memeImage.style.left = x + 'px';
+        memeImage.style.top = y + 'px';
+      }, 50);
+    }
+
+    // Function to stop the image animation
+    function stopImage() {
+      clearInterval(animationInterval);
+    }
+
+    // Event listener for the Start button
+    startButton.addEventListener('click', () => {
+      startButton.disabled = true;
+      stopButton.disabled = false;
+      moveImage();
+    });
+
+    // Event listener for the Stop button
+    stopButton.addEventListener('click', () => {
+      stopButton.disabled = true;
+      startButton.disabled = false;
+      stopImage();
+    });
+  </script>
+</body>
+</html>

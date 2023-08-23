@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Palindrome Checker</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+    <style>
+        /* Your CSS styles here */
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background: linear-gradient(45deg, #f06, #9f6);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0; /* Remove default margin to utilize full space */
+        }
+
+        nav {
+            display: flex;
+            flex-direction: column; /* Stack navigation links vertically */
+            align-items: flex-start; /* Align navigation links to the left */
+            margin-right: 20px; /* Add some spacing between navigation and content */
+        }
+
+        nav a {
+            margin-bottom: 10px; /* Add spacing between navigation links */
+        }
+
+        /* ... Rest of your styles ... */
+    </style>
+</head>
+<body>
+    <nav>
+        <h2>Navigation</h2>
+        <a href="./index.html">Home</a>
+        <a href="./boards.html">Boards</a>
+        <a href="./meme.html">Moving Meme</a>
+        <a href="./game.html">Dice Game</a>
+        <a href="./palindrome.html">Palindrome Checker</a>
+        <a href="./user-input.html">Secret Message App</a>
+        <a href="./table.html">Table</a>
+    </nav>
+
+    <div>
+        <img src="https://images.unsplash.com/photo-1497282003564-004631e01464?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80.jpg" alt="Bricked Hallway" width="300" height="200" style="display: block; margin: 0 auto;">
+        <div style="text-align: center;">
+            <p>Enter a word to check if it's a palindrome:</p>
+            <input type="text" id="inputString">
+            <button onclick="checkPalindrome()">Check</button>
+            <div id="output"></div>
+        </div>
+    </div>
+
+    <script>
+        function checkPalindrome() {
+            let input = document.getElementById("inputString").value;
+            let cleanedString = input.split(' ').join('');
+
+            if (cleanedString === cleanedString.split('').reverse().join('')) {
+                document.getElementById("output").innerText = `${input} is a palindrome!`;
+            } else {
+                document.getElementById("output").innerText = `${input} is not a palindrome.`;
+            }
+
+            setTimeout(function() {
+                let tryAgain = confirm("Would you like to try another word?");
+                if (!tryAgain) {
+                    document.getElementById("inputString").value = "";
+                }
+            }, 1000);
+        }
+    </script>
+</body>
+</html>
+
