@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quarks Casino - Dice Game with Sound</title>
+    <link rel="stylesheet" href="D:\OneDrive\Documents\Javascript3\style.css">
+    <style>
+        body {
+            background-color: #db7171fb; /* Set the desired background color */
+            font-family: 'Open Sans', sans-serif; /* Adding the Google font */
+            color: #333333;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to Quarks Casino!</h1>
+    </header>
+
+    <nav>
+        <h2>Navigation</h2>
+        <a href="./index.html">Home</a><br>
+        <a href="./boards.html">Boards</a><br>
+        <a href="./meme.html">Moving Meme</a><br>
+        <a href="./game.html">Dice Game</a><br>
+        <a href="./palindrome.html">Palindrome Checker</a><br>
+        <a href="./user-input.html">Secret Message App</a><br>
+        <a href="./table.html">Table</a><br>
+    </nav>
+
+    <section>
+        <h1>Welcome to Quarks Casino!</h1>
+        <p>Click the button below to play craps.</p>
+        <div id="output"></div> <!-- Output will be displayed here -->
+        <img src="D:\OneDrive\Pictures\dice-3095227_1280.jpg" alt="Casino Dice Game" width="500" height="300">
+        <audio id="diceSound" src="C:\Users\mclus\Dropbox\PC\Downloads\177208__joanneneedsthesound__dice-rolling-dungeon-and-dragons.wav"></audio>
+        <button onclick="playDiceRollingSound()">Play Dice Rolling Sound</button>
+        <script>
+            function playDiceRollingSound() {
+                var audio = document.getElementById("diceSound");
+                audio.play();
+            }
+        </script>
+    </section>
+
+    <footer>
+        <div>Hosheyah Yisrael</div>
+        University of Advancing Technology<br>
+        2625 W. Baseline Road, Temp, AZ 85283<br>
+    </footer>
+</body>
+</html>
